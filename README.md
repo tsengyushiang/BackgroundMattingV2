@@ -6,16 +6,24 @@ conda activate bgmv2
 conda install -c pytorch torchvision==0.8.1
 pip install -r requirements.txt
 
+// webcam test : click `b` to remove background, click `q` to leave
 python inference_webcam.py --model-type mattingrefine --model-backbone mobilenetv2 --model-checkpoint pytorch_mobilenetv2.pth --resolution 1280 720
 
 python inference_webcam.py --model-type mattingrefine --model-backbone resnet50 --model-checkpoint pytorch_resnet50.pth --resolution 1280 720
 
 python inference_webcam.py --model-type mattingrefine --model-backbone resnet101 --model-checkpoint pytorch_resnet101.pth --resolution 1280 720
 
-```
+// video test
 
-- click `b` to remove background, click `q` to leave
-- https://github.com/jinzishuai/BackgroundMattingV2/issues/1
+python inference_video.py --model-type mattingrefine --model-backbone resnet101 --model-backbone-scale 0.25 --model-refine-mode sampling --model-refine-sample-pixels 80000 --model-checkpoint pytorch_resnet101.pth --video-src my_video/test_video.mp4 --video-bgr my_video/bgd.jpg --video-resize 3840 2160 --output-dir my_video/output --output-type com
+
+// images test
+
+python inference_images.py --model-type mattingrefine --model-backbone resnet101 --model-checkpoint pytorch_resnet101.pth --images-src my_images/input --images-bgr my_images/background --output-dir my_images/output --output-type com fgr pha
+
+```
+- [test on webcam](https://github.com/jinzishuai/BackgroundMattingV2/issues/1)
+- [test on images](https://github.com/jinzishuai/BackgroundMattingV2/issues/3)
 
 # Real-Time High-Resolution Background Matting
 
