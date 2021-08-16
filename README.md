@@ -1,3 +1,22 @@
+# Quick start
+
+```
+conda create -n bgmv2
+conda activate bgmv2
+conda install -c pytorch torchvision==0.8.1
+pip install -r requirements.txt
+
+python inference_webcam.py --model-type mattingrefine --model-backbone mobilenetv2 --model-checkpoint pytorch_mobilenetv2.pth --resolution 1280 720
+
+python inference_webcam.py --model-type mattingrefine --model-backbone resnet50 --model-checkpoint pytorch_resnet50.pth --resolution 1280 720
+
+python inference_webcam.py --model-type mattingrefine --model-backbone resnet101 --model-checkpoint pytorch_resnet101.pth --resolution 1280 720
+
+```
+
+- click `b` to remove background, click `q` to leave
+- https://github.com/jinzishuai/BackgroundMattingV2/issues/1
+
 # Real-Time High-Resolution Background Matting
 
 ![Teaser](https://github.com/PeterL1n/Matting-PyTorch/blob/master/images/teaser.gif?raw=true)
